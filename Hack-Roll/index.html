@@ -4,13 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hack & Roll</title>
+    <title>WOW I CAN'T BELIEVE IT'S NOT</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px; /* Adjust the font size as needed */
+            margin-bottom: 0;
+        }
+
+        span {
+            font-weight: bold;
+            font-size: 30px; /* Adjust the font size as needed */
+        }
+
+        .sub-title {
+            font-size: 18px; /* Adjust the font size as needed */
+        }
+    </style>
 </head>
 <body>
     <div id="header">
         <div class="container">
-            <nav>
+            <div class="header-text">
+                <p>Wow, I CAN'T BELIEVE IT'S NOT</p>
+                <p>A safe link.</p>
+            </div>
+            <nav class="menu">
                 <img src="images/logo.png" class="logo">
                 <ul>
                     <li><a href="#">Home</a></li>
@@ -18,12 +41,28 @@
                     <li><a href="#">Checker</a></li>
                 </ul>
             </nav>
-            <div class="header-text">
-                <p>Security Checker</p>
-                <h1>Time to check the security of your link</h1>
+        </div>
+    </div>
+    <!-- ---------------checker------------ -->
+    <div class="services">
+        <div class="container">
+            <div class="sub-title">Link Checker</div>
+            <div class="service-list">
+                <input type="text" placeholder="Enter your link here">
+            </div>
+            <div class="result-section">
+                <div class="loading">
+                    <img src="images/loading-icon.gif" alt="Loading">
+                    <p>Loading...</p>
+                </div>
+                <!-- You can also add a container for the result message -->
+                <div class="result-message">
+                    <!-- Result message will be displayed here -->
+                </div>
             </div>
         </div>
     </div>
+    
     <!-- ---------------about------------ -->
     <div class="about">
         <div class="container">
@@ -33,8 +72,10 @@
                 </div>
                 <div class="about-col-2">
                     <h1 class="sub-title">About Us</h1>
-                    <p>Welcome to Hack & Roll Security Checker!</p>
-                    <p>At Hack & Roll, our mission is to empower users with the tools and knowledge to ensure the security of their online presence. In an era where cybersecurity is of utmost importance, we believe that everyone should have easy access to tools that help assess the security of their online activities.</p>
+                    <p>Is the website you're about to browse safe?</p>
+                    <p>Every day, millions of sites online are accessed. There's a preeetty good chance that a good number of those sites are unsafe, and can make you peril to things like:
+                        Data leaks and privacy breaches. This site serves as a litmus test to check how safe the sites are.
+                    </p>
 
                     <div class="tab-titles">
                         <p class="tab-links active-link" onclick="opentab('offer', event)">Offer</p>
@@ -42,8 +83,8 @@
                     </div>
                     <div class="tab-contents active-tab" id="offer">
                         <ul>
-                            <li><span>Link Security Checker</span><br>Our user-friendly interface allows you to input links, and we'll provide you with a comprehensive security check. We analyze various aspects, including encryption protocols, potential vulnerabilities, and overall safety measures to ensure that your online experience is secure.</li>
-                            <li><span>Educational Resources</span><br>Stay informed about the latest cybersecurity trends and best practices. Our blog and resources section is dedicated to providing you with valuable insights, tips, and guides to enhance your online security.</li>
+                            <li><span>Link Security Checker</span><br>Simply put in a site, and we'll tell you if it's safe.</li>
+                            <li><span>Educational Resources</span><br>Want to learn to distinguish safe sites from dangerous ones? Want to also know more about new technologies to make your browsing experience safe? Check this link out!</li>
                         </ul>
                     </div>
                     <div class="tab-contents" id="info">
@@ -52,15 +93,6 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- ---------------checker------------ -->
-    <div class="services">
-        <div class="container">
-            <div class="sub-title">Link Checker</div>
-            <div class="service-list">
-                
             </div>
         </div>
     </div>
