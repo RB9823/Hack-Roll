@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hack & Roll</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="images/logo.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#checker">Checker</a></li>
+                    <i class="fas fa-times" onclick="closemenu()"></i>
+                </ul>
+                <i class="fas fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>Security Checker</p>
+                <h1>Time to check the security of your link</h1>
+            </div>
+        </div>
+    </div>
+    <!-- ---------------about------------ -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/user.jpeg">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Us</h1>
+                    <p>Welcome to Hack & Roll Security Checker!</p>
+                    <p>At Hack & Roll, our mission is to empower users with the tools and knowledge to ensure the security of their online presence. In an era where cybersecurity is of utmost importance, we believe that everyone should have easy access to tools that help assess the security of their online activities.</p>
+
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('offer', event)">Offer</p>
+                        <p class="tab-links" onclick="opentab('info', event)">Info</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="offer">
+                        <ul>
+                            <li><span>Link Security Checker</span><br>Our user-friendly interface allows you to input links, and we'll provide you with a comprehensive security check. We analyze various aspects, including encryption protocols, potential vulnerabilities, and overall safety measures to ensure that your online experience is secure.</li>
+                            <li><span>Educational Resources</span><br>Stay informed about the latest cybersecurity trends and best practices. Our blog and resources section is dedicated to providing you with valuable insights, tips, and guides to enhance your online security.</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="info">
+                        <ul>
+                            <li><span>Passionate</span><br>Hacking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ---------------checker------------ -->
+    <div id="checker">
+        <div class="container">
+            <div class="sub-title">Link Checker</div>
+            <div class="service-list">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+    
+        function opentab(tabname, event) {
+            for (var i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active-link");
+            }
+            for (var i = 0; i < tabcontents.length; i++) {
+                tabcontents[i].classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+    
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    
+
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+
+        function openmenu(){
+            sidemenu.style.right = "0";
+        }
+
+        function openmenu(){
+            sidemenu.style.right = "-200px";
+        }
+    </script>
+</body>
+</html>
