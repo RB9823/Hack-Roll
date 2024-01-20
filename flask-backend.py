@@ -1,10 +1,11 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import requests
+import os
 
+app = CORS(Flask(__name__))
 
-app = Flask(__name__)
-
-API_KEY = 'bb85692b080e1bc8c50c18d27e94f3c0f02b85844c283516faf1858ba3342699'
+API_KEY = os.getenv('VIRUSTOTAL_API_KEY') #set the api key in your local env
 VIRUSTOTAL_URL = 'https://www.virustotal.com/api/v3/urls'
 
 @app.route('/scan_url', methods=['POST'])
