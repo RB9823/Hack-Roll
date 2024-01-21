@@ -12,16 +12,16 @@ VIRUSTOTAL_URL = 'https://www.virustotal.com/api/v3/urls'
 @app.route('/scan_url', methods=['POST'])
 def scan_url():
     url_to_scan = request.json.get('url')
+    payload = {'url': url_to_scan}
+    response = requests.post(VIRUSTOTAL_URL, data=payload, headers=headers)
     if not url_to_scan:
         return jsonify({'error': 'No URL provided'}), 400
 
     headers = {
-        'accept': 'application/json',fla
-        'x-apikey': API_KEY
+        'accept': 'application/json',
+        'x-apikey': API_KEY,
+        'content-type': 'application/x-www-form-urlencoded' 
     }
-    payload = {'url': url_to_scan}
-
-    response = requests.post(VIRUSTOTAL_URL, data=payload, headers=headers)
 
     if response.status_code == 200:
         return jsonify(response.json()), 200
