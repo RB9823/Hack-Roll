@@ -1,7 +1,7 @@
-document.getElementById('inputForm').addEventListener('submit', function(event) {
+document.getElementById('linkForm').addEventListener('submit', function(event) {
     event.preventDefault();
-    var userInput = document.getElementById('linkInput').value; 
 
+    var userInput = document.getElementById('linkInput').value;
     fetch('/scan_url', {
         method: 'POST',
         headers: {
@@ -9,16 +9,25 @@ document.getElementById('inputForm').addEventListener('submit', function(event) 
         },
         body: JSON.stringify({ url: userInput })
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-        }
-        return response.json(); // Parses the JSON response
-    })
+    .then(response => response.json())
     .then(data => {
-        document.getElementById('response').innerText = JSON.stringify(data);
+        // Assuming 'data' is the object containing the response from your Flask backend
+        if (data.analysis_id) {
+            document.getElementById('analysis-id').innerText = data.analysis_id;
+        }
+        if (data.error) {
+            document.getElementById('status').innerText = 'Error';
+            document.getElementById('details').innerText = JSON.stringify(data.error);
+        } else {
+            document.getElementById('status').innerText = 'Success';
+            // You can add more details or handle other response data here
+        }
     })
     .catch((error) => {
         console.error('Error:', error);
+        document.getElementById('status').innerText = 'Error';
+        document.getElementById('details').innerText = error.toString();
     });
 });
+
+
