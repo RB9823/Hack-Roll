@@ -31,28 +31,25 @@
     <div id="checker" class="services">
         <div class="container">
             <div class="sub-title">Link Checker</div>
-            <form id="linkForm" method="POST" action="/scan_url">
+            <form id="linkForm" method="POST">
                 <div class="service-list">
                     <input type="text" name="url" id="linkInput" placeholder="Enter your link here">
                     <button type="submit">Check Link</button>
                 </div>
             </form>
             <div class="result-section">
-                <div class="loading" id="loading">
+                <div class="loading" id="loading" style="display: none;">
                     <img src="/static/images/loading.gif" alt="Loading">
                     <p>Loading...</p>
                 </div>
-                <!-- Container for the result message with added ID -->
-                <div id="result-message" class="result-message">
-                    <!-- Result message will be displayed here -->
+                <div id="result-message" class="result-message" style="display: none;">
                     <p>Status: <span id="status"></span></p>
                     <p>Analysis ID: <span id="analysis-id"></span></p>
-                    <p>Details: <span id="details"></span></p>
-                    <!-- You can add more elements here as needed -->
+                    <p>Details: <div id="details"></div></p>
                 </div>
             </div>
         </div>
-    </div>    
+    </div>       
     
     <!-- ---------------about------------ -->
     <div id="about" class="about">

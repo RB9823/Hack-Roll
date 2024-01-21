@@ -7,8 +7,9 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-API_KEY = 'bb85692b080e1bc8c50c18d27e94f3c0f02b85844c283516faf1858ba3342699' #os.getenv('VIRUSTOTAL_API_KEY') set the api key in your local env
-VIRUSTOTAL_URL = 'https://www.virustotal.com/api/v3/urls'
+API_KEY = 'bb85692b080e1bc8c50c18d27e94f3c0f02b85844c283516faf1858ba3342699'
+VIRUSTOTAL_SUBMIT_URL = 'https://www.virustotal.com/api/v3/urls'
+VIRUSTOTAL_ANALYSES_URL = 'https://www.virustotal.com/api/v3/analyses/{id}'
 
 @app.route('/')
 def index():
@@ -16,24 +17,19 @@ def index():
 
 @app.route('/scan_url', methods=['POST'])
 def scan_url():
-    print("Received Content-Type:", request.content_type)  # Debug line
     data = request.json
     if not data or 'url' not in data:
         return jsonify({'error': 'No URL provided'}), 400
 
+    url_to_scan = data['url']
     payload = {'url': url_to_scan}
-
-    #url_to_scan = data['url']
-    #url_id = base64.urlsafe_b64encode(url_to_scan.encode()).decode().rstrip('=')
-
     headers = {
         'accept': 'application/json',
         'x-apikey': API_KEY,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/x-www-form-urlencoded'
     }
 
-    #payload = {'url': url_id}
-    response = requests.post(VIRUSTOTAL_URL, headers=headers, json=payload)
+    response = requests.post(VIRUSTOTAL_SUBMIT_URL, data=payload, headers=headers)
 
     if response.status_code == 200:
         analysis_id = response.json()['data']['id']
@@ -41,13 +37,14 @@ def scan_url():
     else:
         return jsonify({'error': 'Error scanning URL', 'details': response.text}), response.status_code
 
-@app.route('/get_results', methods=['GET'])
+@app.route('/get_results/<analysis_id>', methods=['GET'])
 def get_results(analysis_id):
     headers = {
         'accept': 'application/json',
         'x-apikey': API_KEY,
     }
-    result_url = f"https://www.virustotal.com/api/v3/analyses/{analysis_id}"
+    result_url = VIRUSTOTAL_ANALYSES_URL.format(id=analysis_id)
+    print(result_url)
     response = requests.get(result_url, headers=headers)
 
     if response.status_code == 200:
@@ -56,4 +53,4 @@ def get_results(analysis_id):
         return jsonify({'error': 'Error fetching results', 'details': response.text}), response.status_code
 
 if __name__ == '__main__':
-    app.run(debug=True, port = 8000)
+    app.run(debug=True, port=8000)
