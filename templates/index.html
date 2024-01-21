@@ -38,17 +38,21 @@
                 </div>
             </form>
             <div class="result-section">
-                <div class="loading">
+                <div class="loading" id="loading">
                     <img src="/static/images/loading.gif" alt="Loading">
                     <p>Loading...</p>
                 </div>
-                <!-- You can also add a container for the result message -->
-                <div class="result-message">
+                <!-- Container for the result message with added ID -->
+                <div id="result-message" class="result-message">
                     <!-- Result message will be displayed here -->
+                    <p>Status: <span id="status"></span></p>
+                    <p>Analysis ID: <span id="analysis-id"></span></p>
+                    <p>Details: <span id="details"></span></p>
+                    <!-- You can add more elements here as needed -->
                 </div>
             </div>
         </div>
-    </div>
+    </div>    
     
     <!-- ---------------about------------ -->
     <div id="about" class="about">
