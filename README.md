@@ -3,7 +3,7 @@ Made by Aryan, Miguel, Rohan and Soon Wei
 
 With the internet becoming an integral part of our daily lives, the need to ensure the safety of online activities, especially when navigating through various websites, has become paramount. **LinkGuard** not only checks the security of links but also educates users on how to distinguish between safe and potentially risky sites, thereby helping users navigate the dangers of the internet.
 
-This project was made possible using the VirusTotal Public API and Flask.
+This project was made possible using the <ins>VirusTotal Public API</ins> and <ins>Flask</ins>.
 
 Languages used: HTML, CSS, Python and JavaScript.
 

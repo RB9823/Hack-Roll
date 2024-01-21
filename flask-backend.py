@@ -41,7 +41,7 @@ def scan_url():
     else:
         return jsonify({'error': 'Error scanning URL', 'details': response.text}), response.status_code
 
-@app.route('/get_results/<analysis_id>', methods=['GET'])
+@app.route('/get_results', methods=['GET'])
 def get_results(analysis_id):
     headers = {
         'accept': 'application/json',
