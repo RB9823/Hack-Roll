@@ -4,7 +4,7 @@ import requests
 import os
 
 app = Flask(__name__)
-app =CORS(app)
+CORS(app)
 
 API_KEY = os.getenv('VIRUSTOTAL_API_KEY') #set the api key in your local env
 VIRUSTOTAL_URL = 'https://www.virustotal.com/api/v3/urls'
