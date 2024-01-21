@@ -24,9 +24,24 @@ def scan_url():
     }
 
     if response.status_code == 200:
+        analysis_id = response.json()['data']['id']
+        return jsonify({'analysis_id': analysis_id}), 200
+    else:
+        return jsonify({'error': 'Error scanning URL', 'details': response.text}), response.status_code
+
+@app.route('/get_results/<analysis_id>', methods=['GET'])
+def get_results(analysis_id):
+    headers = {
+        'accept': 'application/json',
+        'x-apikey': API_KEY
+    }
+    result_url = f"https://www.virustotal.com/api/v3/analyses/{analysis_id}"
+    response = requests.get(result_url, headers=headers)
+
+    if response.status_code == 200:
         return jsonify(response.json()), 200
     else:
-        return jsonify({'error': 'Error scanning URL'}), response.status_code
+        return jsonify({'error': 'Error fetching results', 'details': response.text}), response.status_code
 
 if __name__ == '__main__':
     app.run(debug=True)
