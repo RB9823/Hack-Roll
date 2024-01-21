@@ -137,10 +137,71 @@ nav ul li a:hover::after{
 .tab-contents.active-tab{
     display: block;
 }
+
+/* Result Section Styles */
+.result-section {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+}
+
+.loading img {
+    width: 50px; /* Adjust loading image size */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Center the loading image */
+}
+
+.loading p {
+    text-align: center;
+    color: #ff004f; /* Adjust loading text color */
+    margin-top: 10px;
+}
+
+.result-message {
+    color: #fff; /* Text color for the result message */
+    font-size: 18px;
+}
+
+.result-message p {
+    margin: 10px 0;
+}
+
+/* Additional Styling for Details */
+#details {
+    background-color: rgba(0, 0, 0, 0.2); /* Slightly darker background for details */
+    padding: 15px;
+    border-radius: 5px;
+    overflow: auto; /* In case of overflow */
+}
+
+#details ul {
+    list-style: none; /* Remove default list styling */
+    padding-left: 0; /* Align with the rest of the text */
+}
+
+#details li {
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separator for each item */
+}
+
+/* Status and Analysis ID Styling */
+#status, #analysis-id {
+    font-weight: bold;
+    color: #4CAF50; /* A greenish color for success messages */
+}
+
+/* Error Message Styling */
+.error-message {
+    color: #FF0000; /* Red color for error messages */
+}
+
 /*----------------------------css for small screens-----------------------------*/
 @media only screen and (max-width: 600px){
     #header{
-        background-image: url(images/phone_screen.jpeg);
+        background-image: url(images/phone_screen.png);
     }
     .header-text{
         margin-top: 100%;
