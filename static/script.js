@@ -34,18 +34,16 @@ document.getElementById('linkForm').addEventListener('submit', function(event) {
     })
     .then(resultData => {
         document.getElementById('status').innerText = 'Completed';
-        document.getElementById('loading').style.display = 'none'; // Hide the loading
-        document.getElementById('result-message').style.display = 'block'; // Show the results
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('result-message').style.display = 'block';
         document.getElementById('status').innerText = 'Completed';
     
         if (resultData && resultData.data && resultData.data.attributes) {
             const attributes = resultData.data.attributes;
             let detailsHtml = '';
     
-            // Example: Displaying the status of the analysis
             detailsHtml += '<p>Status: ' + attributes.status + '</p>';
     
-            // Example: Displaying the results summary
             if (attributes.stats) {
                 detailsHtml += '<p>Stats: </p>';
                 detailsHtml += '<ul>';
@@ -56,7 +54,6 @@ document.getElementById('linkForm').addEventListener('submit', function(event) {
                 detailsHtml += '</ul>';
             }
     
-            // Update this part based on the structure of resultData
             document.getElementById('details').innerHTML = detailsHtml;
         }
     })
@@ -64,7 +61,7 @@ document.getElementById('linkForm').addEventListener('submit', function(event) {
         console.error('Error:', error);
         document.getElementById('status').innerText = 'Error';
         document.getElementById('details').innerText = error.toString();
-        document.getElementById('loading').style.display = 'none'; // Hide the loading
-        document.getElementById('result-message').style.display = 'block'; // Show the error message
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('result-message').style.display = 'block';
     });    
 });
