@@ -3,7 +3,8 @@ from flask_cors import CORS
 import requests
 import os
 
-app = CORS(Flask(__name__))
+app = Flask(__name__)
+app =CORS(app)
 
 API_KEY = os.getenv('VIRUSTOTAL_API_KEY') #set the api key in your local env
 VIRUSTOTAL_URL = 'https://www.virustotal.com/api/v3/urls'
@@ -15,7 +16,7 @@ def scan_url():
         return jsonify({'error': 'No URL provided'}), 400
 
     headers = {
-        'accept': 'application/json',
+        'accept': 'application/json',fla
         'x-apikey': API_KEY
     }
     payload = {'url': url_to_scan}
