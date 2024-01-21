@@ -4,48 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WOW I CAN'T BELIEVE IT'S NOT</title>
+    <title>LinkGuard</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 24px; /* Adjust the font size as needed */
-            margin-bottom: 0;
-        }
-
-        span {
-            font-weight: bold;
-            font-size: 30px; /* Adjust the font size as needed */
-        }
-
-        .sub-title {
-            font-size: 18px; /* Adjust the font size as needed */
-        }
-    </style>
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="header">
         <div class="container">
+            <nav>
+                <img src="images/logo.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#checker">Checker</a></li>
+                    <li><a href="#about">About</a></li>
+                    <i class="fas fa-times" onclick="closemenu()"></i>
+                </ul>
+                <i class="fas fa-bars" onclick="openmenu()"></i>
+            </nav>
             <div class="header-text">
                 <p>Wow, I CAN'T BELIEVE IT'S NOT</p>
-                <p>A safe link.</p>
+                <h1>A safe link.</h1>
             </div>
-            <nav class="menu">
-                <img src="images/logo.png" class="logo">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Checker</a></li>
-                </ul>
-            </nav>
         </div>
     </div>
     <!-- ---------------checker------------ -->
-    <script src="./script.js"></script>
-    <div class="services">
+    <div id="checker" class="services">
         <div class="container">
             <div class="sub-title">Link Checker</div>
             <form id="linkForm" method="POST" action="/scan_url">
@@ -68,7 +51,7 @@
     </div>
     
     <!-- ---------------about------------ -->
-    <div class="about">
+    <div id="about" class="about">
         <div class="container">
             <div class="row">
                 <div class="about-col-1">
@@ -103,7 +86,7 @@
     <script>
         var tablinks = document.getElementsByClassName("tab-links");
         var tabcontents = document.getElementsByClassName("tab-contents");
-
+   
         function opentab(tabname, event) {
             for (var i = 0; i < tablinks.length; i++) {
                 tablinks[i].classList.remove("active-link");
@@ -114,6 +97,34 @@
             event.currentTarget.classList.add("active-link");
             document.getElementById(tabname).classList.add("active-tab");
         }
+   
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+   
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
+   
+ 
+ 
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+ 
+ 
+        function openmenu(){
+            sidemenu.style.right = "0";
+        }
+ 
+ 
+        function closemenu(){
+            sidemenu.style.right = "-200px";
+        }
+    </script>
+ 
 </body>
 </html>
