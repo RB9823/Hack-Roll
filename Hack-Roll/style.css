@@ -17,9 +17,8 @@ body {
     align-items: top;
 }
 .container {
-    padding: 10px 1%;
+    padding: 5px 1%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 .header-text {
@@ -81,6 +80,7 @@ nav{
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-top: auto;
 }
 .logo {
     max-width: 100px; /* Adjust the size of the logo */
@@ -116,10 +116,7 @@ nav ul li a:hover::after{
     font-size: 60px;
     color: aqua;
     padding-top: 10%;
-}
-.header-text h1{
-    font-size: 30px;
-    margin-top: 20px;
+    padding-bottom: 30%;
 }
 .header-text h1 span{
     color: #ff004f;
