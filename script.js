@@ -1,5 +1,5 @@
 // html element id is inputForm
-document.getElementById('linkForm').addEventListener('submit', function(event)  {
+document.getElementById('inputForm').addEventListener('submit', function(event)  {
     event.preventDefault();
     // stores the url string from html text box with id textInput
     var userInput = document.getElementById('textInput').value;

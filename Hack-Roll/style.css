@@ -4,6 +4,9 @@
     font-family: "Poppins", sans-serif;
     box-sizing: border-box;
 }
+html{
+    scroll-behavior: smooth;
+}
 body {
     background: #080808;
     color: #fff;
@@ -14,19 +17,69 @@ body {
     background-image: url(images/sus_image.png);
     background-size: cover;
     background-position: center;
-    align-items: top;
 }
 .container {
-    padding: 5px 1%;
+    padding: 10px 1%;
+}
+nav {
     display: flex;
     align-items: center;
-}
-.header-text {
-    text-align: center;
-    position: center;
-    justify-content: center; 
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px 1%;
 }
 
+.logo {
+    max-width: 100px;
+    height: auto;
+    margin-right: auto; /* Auto margin on the right to push the logo to the left */
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align links to the right */
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    color: #000;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+}
+nav ul li a::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #ff004f;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+nav ul li a:hover::after{
+    width: 100%;
+}
+.header-text{
+    margin-top: 20%;
+    font-size: 60px;
+    color: aqua;
+    padding-top: 10%;
+}
+.header-text h1{
+    font-size: 30px;
+    margin-top: 20px;
+}
+.header-text h1 span{
+    color: #ff004f;
+}
+ /*--------------about--------------*/
 #services {
     background-color: #000000;
     padding: 20px 0;
@@ -72,54 +125,6 @@ body {
     margin-top: 10px;
     display: none; /* Hide the result message by default */
     color: green; /* Adjust the color based on your design */
-}
-
-
-nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: auto;
-}
-.logo {
-    max-width: 100px; /* Adjust the size of the logo */
-    height: auto;
-    margin-right: 20px; /* Adjust the margin as needed */
-}
-nav ul li{
-    display: inline-block;
-    list-style: none;
-    margin: 10px 20px;
-}
-nav ul li a{
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    position: relative;
-}
-nav ul li a::after{
-    content: '';
-    width: 0;
-    height: 3px;
-    background: #ff004f;
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    transition: 0.5s;
-}
-nav ul li a:hover::after{
-    width: 100%;
-}
-.header-text{
-    margin-top: 20%;
-    font-size: 60px;
-    color: aqua;
-    padding-top: 10%;
-    padding-bottom: 30%;
-}
-.header-text h1 span{
-    color: #ff004f;
 }
 /*--------------about--------------*/
 #about{
