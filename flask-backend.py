@@ -1,4 +1,5 @@
 import base64
+from decouple import config
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import requests
@@ -7,7 +8,7 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-API_KEY = 'bb85692b080e1bc8c50c18d27e94f3c0f02b85844c283516faf1858ba3342699'
+API_KEY = config('VIRUSTOTAL_API_KEY')
 VIRUSTOTAL_SUBMIT_URL = 'https://www.virustotal.com/api/v3/urls'
 VIRUSTOTAL_ANALYSES_URL = 'https://www.virustotal.com/api/v3/analyses/{id}'
 
